@@ -1,3 +1,4 @@
+import CustomizedDoors from "./components/CustomizedDoors";
 import GetInTouch from "./components/GetInTouch";
 import Hero from "./components/Hero";
 import Qualityies from "./components/Qualityies";
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Qualityies />
       <WhoWeAre/>
+      <CustomizedDoors/>
       <GetInTouch/>
     </div>
   );
