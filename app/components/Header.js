@@ -226,8 +226,8 @@ const Header = () => {
               About Us
             </Link>
             <Link
-              href="/our-products"
-              className={getLinkClasses("/our-products")}
+              href="/products"
+              className={getLinkClasses("/products")}
             >
               Our Products
             </Link>

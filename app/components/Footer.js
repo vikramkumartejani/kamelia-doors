@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="py-[60px] max-w-[1130px] w-full mx-auto flex items-start justify-between px-[40px] sm:px-5 gap-10 md:flex-row flex-col">
         <Image
           className="order-2 sm:order-1"
-          src="/assets/Logo.svg"
+          src="/assets/logo.svg"
           alt="Logo"
           width={194.65}
           height={80}
