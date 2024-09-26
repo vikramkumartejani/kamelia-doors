@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Qualityies = () => {
   return (
-    <section className="px-[30px] sm:px-[50px] py-[100px]">
+    <section className="px-5 sm:px-[50px] py-[100px]">
       <div className="grid md:grid-cols-4 grid-cols-2 gap-[32px] lg:gap-[53px] items-center justify-center max-w-[1140px] mx-auto">
         <div className="flex flex-col w-fit-h-fit items-center justify-center gap-[17px] lg:gap-[24px] px-[38px] sm:px-[49px] py-[30px] rounded-[20px] border-2 border-primaryColor border-opacity-[0.2]">
           <Image

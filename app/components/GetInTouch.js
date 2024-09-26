@@ -26,7 +26,7 @@ const options = {
 
 const GetInTouch = () => {
     return (
-        <div className='py-5 sm:py-[50px] md:py-[120px] md:pb-[50px] w-full max-w-[1200px] px-[28px] lg:px-10 mx-auto'>
+        <div className='py-5 sm:py-[50px] md:py-[120px] md:pb-[50px] w-full max-w-[1200px] px-5 lg:px-10 mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-[78px]'>
                 <div>
                     <h2 className='md:text-left text-center uppercase text-[#1B1717] text-[30px] sm:text-[40px] leading-[50px] tracking-[0.07em] font-bold'>get in touch</h2>

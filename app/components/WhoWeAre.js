@@ -4,12 +4,13 @@ import React from "react";
 const WhoWeAre = () => {
   return (
     <section className="px-[18px]">
-      <div class="max-w-[1200px] mx-auto md:pb-[100px] pb-[17.35px] md:px-6 lg:px-8 flex md:flex-row flex-col items-center gap-[20px] md:gap-[30px] lg:gap-[75px]">
+      <div class="max-w-[1200px] mx-auto md:pb-[100px] pb-[17.35px] md:px-6 lg:px-8 flex xmd:flex-row flex-col items-center gap-[20px] md:gap-[30px] lg:gap-[75px]">
           <Image
             src="/assets/who-we-are.svg"
             alt="Kamelia Doors"
             width={500}
             height={530}
+            className="lg:w-[500px] xmd:w-[400px] "
           />
 
         <div class=" ">
@@ -19,7 +20,7 @@ const WhoWeAre = () => {
           <h2 class="text-[22px] md:text-[28px] lg:text-[40px] uppercase font-[700] text-[#1B1717] leading-[31px] md:leading-[40px] lg:leading-[50px] tracking-[7%] md:mt-[8px] mt-[2px]">
             We are perfect for home interior doors
           </h2>
-          <p class="text-[#6E6E6E] md:mt-[30px] lg:mt-[42px] mt-[12px] font-[400] text-[13px] md:text-[17px] leading-[19.5px] md:leading-[25.5px]">
+          <p class="text-[#6E6E6E] md:mt-[20px] lg:mt-[42px] mt-[12px] font-[400] text-[13px] md:text-[17px] leading-[19.5px] md:leading-[25.5px]">
             At Kamelia Doors, we take pride in crafting the perfect doors to
             complement your home's interior. With a focus on quality, precision,
             and durability, our expert craftsmen ensure that every door is
