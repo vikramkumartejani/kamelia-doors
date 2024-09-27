@@ -1,9 +1,12 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/swiper-bundle.css"; // If using Swiper v6 and earlier
+import "swiper/css"; // For Swiper v7 and later
+
+
 
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
@@ -117,11 +120,10 @@ export default function DifferentWood() {
           {woodMaterials.map((_, index) => (
             <button
               key={index}
-              className={`rounded-[7.5px] h-[10px] md:h-[14px] transition-all ${
-                currentSlide === index
+              className={`rounded-[7.5px] h-[10px] md:h-[14px] transition-all ${currentSlide === index
                   ? "bg-[#EE7922] w-[50px] md:w-[70px]"
                   : "bg-[#F8D3B6] w-[23px]"
-              }`}
+                }`}
               onClick={() => swiperRef.current.swiper.slideToLoop(index)} // Use slideToLoop for looped slides
             ></button>
           ))}
