@@ -1,66 +1,26 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/swiper-bundle.css"; // If using Swiper v6 and earlier
-import "swiper/css"; // For Swiper v7 and later
+import { EffectCoverflow, Pagination } from "swiper";
 
-
-
-import { EffectCoverflow, Pagination } from "swiper/modules";
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
 const woodMaterials = [
   "/assets/wood-1.png",
   "/assets/wood-2.png",
   "/assets/wood-3.png",
-  "/assets/wood-2.png",
+  "/assets/wood-4.png",
 ];
 
-// Custom Previous Arrow
-const CustomPrevArrow = ({ onClick }) => {
-  return (
-    <div
-      className="md:block hidden custom-prev-arrow absolute z-40 lg:left-[10px] -left-[30px]"
-      onClick={onClick}
-      style={{ top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
-    >
-      <img
-        src="/assets/left-arrow-slider.svg"
-        width={64}
-        height={64}
-        alt="Previous"
-        className="arrow-image"
-      />
-    </div>
-  );
-};
-
-// Custom Next Arrow
-const CustomNextArrow = ({ onClick }) => {
-  return (
-    <div
-      className="md:block hidden custom-next-arrow absolute z-40 lg:right-[10px] -right-[30px]"
-      onClick={onClick}
-      style={{ top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
-    >
-      <img
-        src="/assets/right-arrow-slider.svg"
-        width={64}
-        height={64}
-        alt="Next"
-        className="arrow-image"
-      />
-    </div>
-  );
-};
-
-export default function DifferentWood() {
+const DifferentWood = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const swiperRef = useRef(null);
 
   const handleSlideChange = (swiper) => {
-    setCurrentSlide(swiper.realIndex); // Use realIndex for looping
+    setCurrentSlide(swiper.realIndex);
   };
 
   return (
@@ -70,26 +30,21 @@ export default function DifferentWood() {
           Different wood MATERIALS
         </h1>
         <p className="max-w-[342px] sm:max-w-[999px] mx-auto w-full text-[#6E6E6E] text-[15px] sm:text-[17px] sm:leading-[25px] font-normal">
-          Explore a rich palette of wood colors, each carefully selected to
-          enhance the natural beauty of your doors and complement your interior
-          design.
+          Explore a rich palette of wood colors, each carefully selected to enhance the natural beauty of your doors and complement your interior design.
         </p>
       </div>
 
       <div className="mt-10 md:mt-16 relative">
-        {/* Custom Prev Arrow */}
-        <CustomPrevArrow onClick={() => swiperRef.current.swiper.slidePrev()} />
-
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={"auto"}
-          loop={true} // Enable infinite loop
+          loop={true}
           coverflowEffect={{
-            rotate: 30, // Reduce rotation to prevent bending
-            stretch: 10, // Adjust the spacing between slides
-            depth: 200, // Increase depth for better 3D effect
+            rotate: 30,
+            stretch: 10,
+            depth: 200,
             modifier: 1,
             slideShadows: true,
           }}
@@ -99,10 +54,7 @@ export default function DifferentWood() {
           className="mySwiper"
         >
           {woodMaterials.map((material, index) => (
-            <SwiperSlide
-              key={index}
-              className="object-cover h-[420.23px] w-[401.55px]"
-            >
+            <SwiperSlide key={index}>
               <img
                 src={material}
                 alt={`Wood Material ${index + 1}`}
@@ -111,24 +63,9 @@ export default function DifferentWood() {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Custom Next Arrow */}
-        <CustomNextArrow onClick={() => swiperRef.current.swiper.slideNext()} />
-
-        {/* Custom Pagination Dots */}
-        <div className="flex justify-center items-center mt-8 sm:mt-14 gap-3 sm:gap-4">
-          {woodMaterials.map((_, index) => (
-            <button
-              key={index}
-              className={`rounded-[7.5px] h-[10px] md:h-[14px] transition-all ${currentSlide === index
-                  ? "bg-[#EE7922] w-[50px] md:w-[70px]"
-                  : "bg-[#F8D3B6] w-[23px]"
-                }`}
-              onClick={() => swiperRef.current.swiper.slideToLoop(index)} // Use slideToLoop for looped slides
-            ></button>
-          ))}
-        </div>
       </div>
     </div>
   );
-}
+};
+
+export default DifferentWood;
