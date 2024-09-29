@@ -1,25 +1,30 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import i18n from "../../public/locales/i18n";
 import { FaGlobeAmericas, FaGlobeAsia } from "react-icons/fa"; // Import icons
 
 const LanguageSwitcher = () => {
-  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const currentLanguage = i18n.language;
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    localStorage.setItem("language", lng); // Store the selected language in localStorage
+    setCurrentLanguage(lng); // Update the current language state
     setIsOpen(false); // Close dropdown after selection
 
     // Update the direction based on the selected language
     document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
   };
 
-  // Update the direction on initial render
+  // Update the language and direction on initial render or when the language changes
   useEffect(() => {
-    document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+    const savedLanguage = localStorage.getItem("language") || "en";
+    if (savedLanguage !== currentLanguage) {
+      i18n.changeLanguage(savedLanguage);
+      setCurrentLanguage(savedLanguage);
+    }
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
   }, [currentLanguage]);
 
   return (
